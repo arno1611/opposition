@@ -2,9 +2,6 @@
                            README - Site Oppose
 ===============================================================================
 
-Auteur: Justine Clément
-Date: 29 juin 2024
-
 ===============================================================================
 
 Ce site web a été développé dans le but de fournir des informations et des services
