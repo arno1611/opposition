@@ -32,7 +32,4 @@ Contenu du site:
    - Les couleurs, polices et mises en page ont été conçues pour être modernes et professionnelles,
      correspondant à l'image de marque d'Oppose.
 
-5. Contact:
-   - Pour toute question ou commentaire, n'hésitez pas à contacter Justine Clément via le lien GitHub en pied de page.
-
 ===============================================================================
