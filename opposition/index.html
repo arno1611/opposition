@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Oppose</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: Justine Clément
+  ======================================================== -->
+</head>
+
+<style>
+  /* Chatbot Button */
+.chatbot-button {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.chatbot-button i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.chatbot-button:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+/* Chatbot Modal */
+.chatbot-modal {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 350px;
+  height: 450px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  border-radius: 10px;
+}
+
+.chatbot-modal-content {
+  position: relative;
+  height: 100%;
+}
+
+.chatbot-close {
+  position: absolute;
+  top: 0%;
+  right: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1002;
+}
+</style>
+
+<script>
+  function toggleChatbotModal() {
+    var modal = document.getElementById("chatbotModal");
+    if (modal.style.display === "none" || modal.style.display === "") {
+      modal.style.display = "block";
+    } else {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/logo.png" alt="">
+        <h1 class="sitename">Oppose</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero" class="active">Accueil</a></li>
+          <li><a href="index.html#about">À propos</a></li>
+          <li><a href="index.html#features">Expertise</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#pricing">Tarifs</a></li>
+          <!--
+          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li>-->
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="index.html#pricing">Passez à l'action !</a>
+
+    </div>
+  </header>
+
+  <!-- Chatbot Button -->
+  <div id="chatbotButton" class="chatbot-button d-flex align-items-center justify-content-center">
+    <i class="bi bi-chat" alt="Chat" onclick="toggleChatbotModal()"></i>
+  </div>
+
+  <!-- Chatbot Modal -->
+  <div id="chatbotModal" class="chatbot-modal">
+    <div class="chatbot-modal-content">
+      <span class="chatbot-close" onclick="toggleChatbotModal()"><i class="bi bi-x"></i></span>
+      <iframe src="http://127.0.0.1:5000/" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <div class="hero-bg">
+        <img src="assets/img/hero-bg-light.webp" alt="">
+      </div>
+      <div class="container text-center">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <h1 data-aos="fade-up"><span>Oppose<br></span> <br>Votre partenaire de confiance pour contester une ordonnance d’injonction de payer</h1>
+          <p data-aos="fade-up" data-aos-delay="100"><br>Face à une telle situation, le délai est crucial : vous avez 1 mois pour agir ! <br>
+            Ne perdez pas de temps et faites appel à nos experts pour garantir une défense solide de vos intérêts.
+            </p><br>
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            <a href="#features" class="btn-get-started">Faites opposition dès maintenant !</a>
+          </div>
+          <img src="assets/img/hero-services-img.webp" class="img-fluid hero-img" alt="" data-aos="zoom-out" data-aos-delay="300">
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section light-background">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+              <div>
+                <h4 class="title"><a href="#pricing" class="stretched-link">Professionnel</a></h4>
+                <p class="description">Explorez notre approche professionnelle, garantie par notre expertise.</p>
+              </div>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
+              <div>
+                <h4 class="title"><a href="#pricing" class="stretched-link">Rapide</a></h4>
+                <p class="description">Bénéficiez de notre service rapide et efficace, adapté à vos besoins urgents.</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
+              <div>
+                <h4 class="title"><a href="#pricing" class="stretched-link">Efficace</a></h4>
+                <p class="description">Optez pour une solution rapide, efficace et personnalisée.</p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Featured Services Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+            <p class="who-we-are">Qui sommes nous</p>
+            <h3>Notre mission</h3>
+            <p class="fst-italic">
+              Oppose a été fondé avec l'objectif d'aider les individus et les entreprises à naviguer dans les procédures judiciaires complexes liées aux injonctions de payer.
+            </p>
+            <ul>
+              <li><i class="bi bi-eye-fill"></i> <span>Transparence: Nous nous engageons à fournir des informations claires et honnêtes à nos clients.</span></li>
+              <li><i class="bi bi-award"></i> <span>Compétence: Nos experts sont spécialisés dans les injonctions de payer et possèdent une connaissance approfondie du droit.</span></li>
+              <li><i class="bi bi-globe"></i> <span>Accessibilité: Nous offrons des services à des tarifs compétitifs et proposons différents niveaux d'accompagnement pour répondre à tous les besoins.</span></li>
+            </ul>
+            <a href="#services" class="read-more"><span>En savoir plus</span><i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="col-lg-6 about-images" data-aos="fade-up" data-aos-delay="200">
+            <div class="row gy-4">
+              <div class="col-lg-6">
+                <img src="assets/img/about-company-1.jpg" class="img-fluid" alt="">
+              </div>
+              <div class="col-lg-6">
+                <div class="row gy-4">
+                  <div class="col-lg-12">
+                    <img src="assets/img/about-company-2.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-lg-12">
+                    <img src="assets/img/about-company-3.jpg" class="img-fluid" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- /About Section -->
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Notre expertise à votre service</h2>
+        <p>Descriptif du processus d’opposition</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row justify-content-between">
+
+          <div class="col-lg-5 d-flex align-items-center">
+
+            <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
+              <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
+                  <i class="bi bi-x-circle"></i>
+                  <div>
+                    <h4 class="d-none d-lg-block">Jour J - Opposition</h4>
+                    <p>
+                      Ce jour marque le dépôt de votre opposition auprès du tribunal compétent. C'est le moment où vous contestez officiellement l'ordonnance d'injonction de payer qui vous a été notifiée.
+                    </p>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
+                  <i class="bi bi-calendar-event"></i>
+                  <div>
+                    <h4 class="d-none d-lg-block">M+1 à M+2 - Convocation à l’audience par le greffe :*</h4>
+                    <p>
+                      Dans les mois suivant votre opposition (généralement entre 1 à 2 mois), le greffe du tribunal vous enverra une convocation officielle pour l'audience. Cette convocation précise la date et l'heure à laquelle votre cas sera examiné par le tribunal.
+                    </p>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
+                  <i class="bi bi-people"></i>
+                  <div>
+                    <h4 class="d-none d-lg-block">M+2 à M+6 - Audiences :*</h4>
+                    <p>
+                      Pendant cette période (entre 2 à 6 mois après l'opposition), vous assisterez à une ou plusieurs audiences. C'est à ce moment que votre dossier sera examiné par le juge, qui écoutera les arguments des deux parties et prendra une décision.
+                    </p>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
+                  <i class="bi bi-journal-check"></i>
+                  <div>
+                    <h4 class="d-none d-lg-block">M+2 - Jugement :*</h4>
+                    <p>
+                      Environ deux mois après avoir déposé votre opposition, le tribunal rendra son jugement. C'est à ce stade que la décision finale sur votre cas sera prise, déterminant si votre opposition est acceptée ou rejetée.                    </p>
+                      <br><br><p>*Délais moyen</p>
+                  </div>
+                </a>
+              </li>
+            </ul><!-- End Tab Nav -->
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+              <div class="tab-pane fade active show" id="features-tab-1">
+                <img src="assets/img/tabs-1.jpg" alt="" class="img-fluid">
+              </div><!-- End Tab Content Item -->
+
+              <div class="tab-pane fade" id="features-tab-2">
+                <img src="assets/img/tabs-2.jpg" alt="" class="img-fluid">
+              </div><!-- End Tab Content Item -->
+
+              <div class="tab-pane fade" id="features-tab-3">
+                <img src="assets/img/tabs-3.jpg" alt="" class="img-fluid">
+              </div><!-- End Tab Content Item -->
+
+              <div>
+                <br><br><br>
+                <h4 class="d-none d-lg-block mt-4 text-center bg-light" style="border-radius: 30px; padding: 10px;"> <br>Grâce à une “simple” opposition, vous mettez la procédure d’injonction de payer en attente.<br><br> <strong>Vous gagnez un temps précieux (allant de 4 à 10 mois) pour réunir les sommes dûes et/ou étudier vos recours.<br></strong><br></h4>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Features Details Section -->
+    <section id="features-details" class="features-details section">
+
+      <div class="container">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Niveaux d’accompagnement proposés</h2>
+          <p>Nos experts vous accompagnent pour maximiser vos chances de succès à chaque étape :</p>
+        </div><!-- End Section Title -->
+
+        <div class="row gy-4 justify-content-between features-item">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/features-1.jpg" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-5 d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>Niveau 1 - Analyse de votre situation</h3>
+              <p>
+                Nous analysons votre dossier pour identifier la meilleure stratégie d’opposition et nous vous fournissons un document type pour que vous puissiez la porter vous-même auprès du tribunal.
+              </p>
+              <ul>
+                <li><i class="bi bi-file-earmark-check flex-shrink-0"></i> Obtenez une évaluation précise de votre dossier.</li>
+                <li><i class="bi bi-person-check flex-shrink-0"></i> Assurez-vous de choisir la bonne stratégie juridique.</li>
+                <li><i class="bi bi-gear-wide-connected flex-shrink-0"></i> Préparez-vous efficacement pour votre opposition.</li>
+              </ul>
+              <a href="#pricing" class="btn more-btn">Ça m'intéresse !</a>
+            </div>
+          </div>
+
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 justify-content-between features-item">
+
+          <div class="col-lg-5 d-flex align-items-center order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="content">
+              <h3>Niveau 2 - Rédaction et dépôt de l'opposition</h3>
+              <p>
+                Nous rédigeons pour vous l'opposition à l'injonction de payer et la déposons auprès du tribunal compétent. Vous vous chargez du suivi du dossier.<br><br><i><strong>Prochainement Option : Analyse de crédit</strong></i>
+              </p>
+              <ul>
+                <li><i class="bi bi-easel flex-shrink-0"></i> Préparez vos arguments en toute simplicité.</li>
+                <li><i class="bi bi-patch-check flex-shrink-0"></i> Vérifiez la validité de votre opposition.</li>
+                <li><i class="bi bi-brightness-high flex-shrink-0"></i> Recevez un soutien personnalisé tout au long du processus.</li>
+              </ul>
+              <p></p>
+              <a href="#pricing" class="btn more-btn">Ça m'intéresse !</a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/img/features-2.jpg" class="img-fluid" alt="">
+          </div>
+
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 justify-content-between features-item">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/features-3.jpg" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-5 d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>Niveau 3 - Suivi personnalisé</h3>
+              <p>
+                Un avocat se charge de votre dossier de A à Z. Nous assurons un suivi régulier et vous tenons informé de chaque étape de la procédure.
+              </p>
+              <ul>
+                <li><i class="bi bi-journal-check flex-shrink-0"></i> Un avocat dédié pour chaque étape juridique.</li>
+                <li><i class="bi bi-calendar-check flex-shrink-0"></i> Suivi détaillé de la procédure judiciaire.</li>
+                <li><i class="bi bi-file-earmark-person flex-shrink-0"></i> Mise à jour régulière sur l'avancement de votre cas.</li>
+              </ul>
+              <a href="#pricing" class="btn more-btn">Ça m'intéresse !</a>
+            </div>
+          </div>
+
+        </div><!-- Features Item -->
+
+      </div>
+
+    </section><!-- /Features Details Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Comment ça marche ?</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row g-5 text-start">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+              <i class="bi bi-activity icon"></i>
+              <div>
+                <h3>01. Choisissez le niveau d’accompagnement qui vous correspond :</h3>
+                <p>Choisir parmi nos trois niveaux accompagnement celui qui correspond le plus à vos besoins.</p>
+                <a href="#pricing" class="read-more stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item item-orange position-relative">
+              <i class="bi bi-broadcast icon"></i>
+              <div>
+                <h3>02. Contactez-nous : </h3>
+                <p>Remplissez notre formulaire en ligne pour ouvrir votre dossier.</p>
+                <a href="#contact" class="read-more stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item item-teal position-relative">
+              <i class="bi bi-easel icon"></i>
+              <div>
+                <h3>03. Dossier prêt en express : </h3>
+                <p>Dès que vous nous donnez le feu vert / Dès que vous nous avez fourni les informations nécessaires, nous préparons votre document d’opposition en 24h.</p>
+                <a href="/QuickStart/service-details.html" class="read-more stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item item-red position-relative">
+              <i class="bi bi-bounding-box-circles icon"></i>
+              <div>
+                <h3>04. Accompagnement continu : </h3>
+                <p>Nous restons à vos côtés jusqu'à la résolution complète de votre affaire.</p>
+                <a href="/QuickStart/service-details.html" class="read-more stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- More Features Section -->
+    <section id="more-features" class="more-features section">
+
+      <div class="container">
+
+        <div class="row justify-content-around gy-4">
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+            <h3>Pourquoi faire opposition à une injonction de payer avec Oppose ?</h3>
+            <p>Faire opposition à une ordonnance d'injonction de payer vous permet de défendre vos intérêts à plusieurs niveaux :</p>
+
+            <div class="row">
+
+              <div class="col-lg-6 icon-box d-flex">
+                <i class="bi bi-x-circle flex-shrink-0"></i>
+                <div>
+                  <h4>Mettre temporairement l’injonction en suspens</h4>
+                  <p>→ Par la seule saisie du Juge, la procédure est mise en stand-by. Vous gagnez du temps pour réunir les sommes dûes et/ou étudier vos recours.</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-lg-6 icon-box d-flex">
+                <i class="bi bi-clock flex-shrink-0"></i>
+                <div>
+                  <h4>Demander des délais de paiement</h4>
+                  <p>→ L’opposition peut vous permettre d’obtenir un étalement des paiements, vous évitant ainsi de vous retrouver en difficulté financière.</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-lg-6 icon-box d-flex">
+                <i class="bi bi-check-circle flex-shrink-0"></i>
+                <div>
+                  <h4>Vérifier la créance</h4>
+                  <p>→ Parfois, les créances réclamées peuvent être incorrectes ou non justifiées. L’opposition permet de vérifier la validité et l'exactitude de la dette.</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-lg-6 icon-box d-flex">
+                <i class="bi bi-shield flex-shrink-0"></i>
+                <div>
+                  <h4>Protéger vos droits</h4>
+                  <p>→ En faisant opposition, vous vous assurez que vos droits sont respectés et que vous n'êtes pas contraint de payer une somme indue.</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-lg-6 icon-box d-flex">
+                <i class="bi bi-arrow-down-circle flex-shrink-0"></i>
+                <div>
+                  <h4>Réduire les montants réclamés</h4>
+                  <p>→ Dans certains cas, l’opposition peut aboutir à une réduction du montant réclamé, ou même à l'annulation de la dette si elle est jugée infondée.</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              
+              <div class="col-lg-6 icon-box d-flex">
+                <i class="bi bi-emoji-smile flex-shrink-0"></i>
+                <div>
+                  <h4>En résumé</h4>
+                  <p>→ Chez Oppose, nous saisissons l'importance de l’enjeu et nous nous engageons à vous fournir un accompagnement professionnel et personnalisé selon votre besoin.</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+            </div>
+
+          </div>
+
+          <div class="features-image col-lg-5 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/img/features-3.jpg" alt="">
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /More Features Section -->
+<!-- Pricing Section -->
+<section id="pricing" class="pricing section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Tarifs</h2>
+    <p>Explorez nos services professionnels avec prise en charge par l'aide juridictionnelle pour vous accompagner efficacement dans vos démarches légales.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <!-- Analyse de votre situation -->
+      <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="pricing-item">
+          <h3>Analyse de votre situation</h3>
+          <p class="description">Analyse approfondie de votre dossier pour identifier la meilleure stratégie d'opposition. Conseil personnalisé pour vous guider dans la préparation de votre opposition. Document type fourni pour déposer l'opposition vous-même auprès du tribunal.</p>
+          <h4><sup>€</sup>45<span></span></h4>
+          <a href="https://buy.stripe.com/28o8wA5V63CdcM028a" class="cta-btn">Choisir ce plan</a>
+          <p class="text-center small">Paiement unique</p>
+          <ul>
+            <li><i class="bi bi-check"></i> <span>Analyse approfondie du dossier</span></li>
+            <li><i class="bi bi-check"></i> <span>Conseil personnalisé</span></li>
+            <li><i class="bi bi-check"></i> <span>Document type fourni</span></li>
+            <li class="na"><i class="bi bi-x"></i> <span>Rédaction complète de l'opposition</span></li>
+            <li class="na"><i class="bi bi-x"></i> <span>Dépôt de l'opposition au tribunal</span></li>
+            <li class="na"><i class="bi bi-x"></i> <span>Support client étendu</span></li>
+            <li class="na"><i class="bi bi-x"></i> <span>Suivi personnalisé par un avocat</span></li>
+          </ul>
+        </div>
+      </div><!-- End Pricing Item -->
+
+      <!-- Rédaction et dépôt de l'opposition -->
+      <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="pricing-item featured">
+          <p class="popular">Populaire</p>
+          <h3>Rédaction et dépôt de l'opposition</h3>
+          <p class="description">Rédaction complète de l'opposition par nos experts et dépôt auprès du tribunal compétent. Conseil personnalisé pour valider l'opposition et support client tout au long du processus.</p>
+          <h4><sup>€</sup>99<span></span></h4>
+          <a href="https://buy.stripe.com/aEU9AE83e2y99zO4gh" class="cta-btn">Choisir ce plan</a>
+          <p class="text-center small">Paiement unique</p>
+          <ul>
+            <li><i class="bi bi-check"></i> <span>Analyse approfondie du dossier</span></li>
+            <li><i class="bi bi-check"></i> <span>Conseil personnalisé</span></li>
+            <li><i class="bi bi-check"></i> <span>Rédaction complète de l'opposition</span></li>
+            <li><i class="bi bi-check"></i> <span>Dépôt de l'opposition au tribunal</span></li>
+            <li><i class="bi bi-check"></i> <span>Support client étendu</span></li>
+            <li class="na"><i class="bi bi-x"></i> <span>Suivi personnalisé par un avocat</span></li>
+          </ul>
+        </div>
+      </div><!-- End Pricing Item -->
+
+      <!-- Suivi personnalisé -->
+      <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="pricing-item">
+          <h3>Suivi personnalisé</h3>
+          <p class="description">Un avocat dédié prend en charge votre dossier de A à Z avec suivi régulier et représentation en audience si nécessaire. Gestion proactive pour maximiser vos chances de succès.</p>
+          <h4><sup>€</sup>1500<span></span></h4>
+          <a href="https://buy.stripe.com/14k4gk1EQ3Cd3bqdQQ" class="cta-btn" target="_blank">Choisir ce plan</a>
+          <p class="text-center small">Paiement unique</p>
+        <ul>
+            <li><i class="bi bi-check"></i> <span>Analyse approfondie du dossier</span></li>
+            <li><i class="bi bi-check"></i> <span>Conseil personnalisé</span></li>
+            <li><i class="bi bi-check"></i> <span>Rédaction complète de l'opposition</span></li>
+            <li><i class="bi bi-check"></i> <span>Dépôt de l'opposition au tribunal</span></li>
+            <li><i class="bi bi-check"></i> <span>Support client premium</span></li>
+            <li><i class="bi bi-check"></i> <span>Suivi personnalisé par un avocat</span></li>
+            <li><i class="bi bi-check"></i> <span>Représentation en audience</span></li>
+          </ul>
+        </div>
+      </div><!-- End Pricing Item -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Pricing Section -->
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Réponses aux Questions Fréquentes</h2>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="faq-container">
+
+              <div class="faq-item faq-active">
+                <h3>Pourquoi ai-je reçu une injonction de payer ?</h3>
+                <div class="faq-content">
+                  <p>Car votre créancier – considérant que vous lui êtes redevable d’une somme d’argent – a déposé une requête à un juge afin qu’une ordonnance d’injonction de payer soit rendue à votre encontre. C’est donc une décision de Justice qui vous sera applicable dès lors que vous ne formez pas opposition dans un délai d’un mois suivant sa réception.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Pourquoi faire opposition ?</h3>
+                <div class="faq-content">
+                  <p>Il ne faut surtout pas confondre une ordonnance d’injonction de payer avec une mise en demeure ou une sommation de payer. Elle a plus de “pouvoir” que cela ! Faire opposition à une ordonnance d’injonction de payer vous permet de rejeter les prétentions du créancier (la créance réclamée) ou, au moins, demander des délais de paiement. Si aucune opposition n’est formée, l’ordonnance revêt force exécutoire dans le délai d’un mois et permet au créancier de pratiquer une mesure de contrainte.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Comment faire opposition ?</h3>
+                <div class="faq-content">
+                  <p>L’opposition est portée, selon le cas, devant la juridiction dont le juge ou le président a rendu l’ordonnance portant injonction de payer. Elle est formée au greffe, par le débiteur ou tout mandataire, soit par déclaration contre récépissé, soit par lettre recommandée. (Article 1415 du code de procédure civile). L’opposition doit être formée dans le mois qui suit la signification de l’acte, soit la date à laquelle l’huissier vous l’a notifiée.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Quel est le délai pour faire opposition à une ordonnance d’injonction de payer ?</h3>
+                <div class="faq-content">
+                  <p>Un mois à compter de la signification de l’ordonnance. Bon à savoir : Si l’huissier ne vous a pas remis l’acte en mains propres, il est possible de former opposition même après 1 mois. Pour ainsi dire, ce délai de 1 mois va recourir au prochain acte de l’huissier portant atteinte à votre patrimoine : saisie sur compte, etc.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Pourquoi est-il important de faire opposition à une ordonnance d’injonction de payer ?</h3>
+                <div class="faq-content">
+                  <p>La mise en opposition d’une ordonnance d’injonction de payer permet de contester le montant réclamé, de demander des délais de paiement, ou d’obtenir une réévaluation de la dette.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3>Que se passe-t-il si je ne fais pas opposition à l’ordonnance d’injonction de payer ?</h3>
+                <div class="faq-content">
+                  <p>Si vous ne faites pas opposition à l’ordonnance dans le délai d’un mois, elle devient exécutoire et permet au créancier de procéder à des mesures de contrainte pour recouvrer la dette.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+
+          </div><!-- End Faq Column-->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Consultation téléphonique et étude de votre dossier sans engagement.
+          <a href="https://calendly.com/maitre-maxime-delespaul-avocat/credit-caution-consultation-gratuite-clone?month=2024-09" target="_blank">Réservez une consultation gratuite ici.</a>
+        </p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Addresse</h3>
+              <p>40 Rue Vignon, 75009 Paris, France</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-telephone"></i>
+              <h3>Appelez-nous !</h3>
+              <p>+33 1 40 26 95 00</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-envelope"></i>
+              <h3>Écrivez-nous !</h3>
+              <p>contact@oppose.com</p>
+            </div>
+          </div><!-- End Info Item -->
+
+        </div>
+
+        <div class="row gy-4 mt-1">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.5211400723063!2d2.3266182156756387!3d48.87193197928808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e3629b43a67%3A0xc53ad1d93d291ab3!2s40%20Rue%20Vignon%2C%2075009%20Paris%2C%20France!5e0!3m2!1sen!2sus!4v1693862908384!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div><!-- End Google Maps -->
+
+          <div class="col-lg-6">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Votre Nom" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Votre Email" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Sujet" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Chargement</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Votre message a été envoyé. Merci !</div>
+
+                  <button type="submit">Envoyer</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container footer-top justify-content-center ">
+      <div class="row d-flex justify-content-center gy-4">
+        <div class="col-lg-4 col-md-6 footer-about justify-content-center text-center">
+          <a href="index.html" class="logo d-flex justify-content-center text-center">
+            <span class="sitename">Oppose</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>40 Rue Vignon,</p>
+            <p>75009 Paris, France</p>
+            <p class="mt-3"><strong>Téléphone:</strong> <span>+33 1 40 26 95 00</span></p>
+            <p><strong>Email:</strong> <span>contact@oppose.com</span></p>
+            <a href="/QuickStart/legal_notice.html">Mentions légales</a><br>
+            <a href="/QuickStart/privacy.html">Politique de confidentialité</a>
+          </div>
+          <div class="social-links d-flex mt-4 justify-content-center text-center">
+            <a href="https://www.linkedin.com/in/maximedelespaul/?originalSubdomain=fr" target="_blank"><i class="bi bi-linkedin"></i></a>
+        </div>
+          
+        <!--
+        <div class="col-lg-4 col-md-6 text-center footer-logo">
+        </div>
+        -->
+
+        <!--
+        <div class="col-lg-2 col-md-3 footer-links text-end">
+          <h4>Liens Utiles</h4>
+          <ul class="list-unstyled">
+            <li class="text-end"><a href="#">Accueil</a></li>
+            <li class="text-end"><a href="#">À propos</a></li>
+            <li class="text-end"><a href="#">Services</a></li>
+            <li class="text-end"><a href="#">Mentions légales</a></li>
+            <li class="text-end"><a href="#">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+        -->
+      </div>
+    </div>
+  
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright | </span> <strong class="px-1 sitename">Oppose</strong><span> | Tous droits réservés.</span></p>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
